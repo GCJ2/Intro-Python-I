@@ -6,7 +6,13 @@
 
 # YOUR CODE HERE
 
+
+def f1(num_1, num_2):
+    return num_1 + num_2
+
+
 print(f1(1, 2))
+
 
 # Write a function f2 that takes any number of integer arguments and prints the
 # sum.
@@ -14,15 +20,27 @@ print(f1(1, 2))
 
 # YOUR CODE HERE
 
-print(f2(1))                    # Should print 1
-print(f2(1, 3))                 # Should print 4
-print(f2(1, 4, -12))            # Should print -7
+
+def f2(*args):          # Function takes in arbitrary amount of args
+    total = 0           # Set total to 0
+    for arg in args:    # For each argument passed in
+        total += arg    # Increment total by each argument
+    return total        # Return total
+
+
+print(f2(1))  # Should print 1
+print(f2(1, 3))  # Should print 4
+print(f2(1, 4, -12))  # Should print -7
 print(f2(7, 9, 1, 3, 4, 9, 0))  # Should print 33
-
+#
 a = [7, 6, 5, 4]
+#
+# # How do you have to modify the f2 call below to make this work?
+print(f2(*a))  # Should print 22
 
-# How do you have to modify the f2 call below to make this work?
-print(f2(a))    # Should print 22
+print(a)    # This returns the list
+print(*a)   # This unpacks the list into individual numbers to be used in function call
+
 
 # Write a function f3 that accepts either one or two arguments. If one argument,
 # it returns that value plus 1. If two arguments, it returns the sum of the
@@ -30,9 +48,15 @@ print(f2(a))    # Should print 22
 # Note: Google "python default arguments" for a hint.
 
 # YOUR CODE HERE
+def f3(arg1, arg2=1):       # Takes in arg1, if no arg2, arg2=1
+    if arg1 and arg2:       # If the function call has both arg1 and arg2
+        return arg1 + arg2  # Add them together
+    else:
+        return arg1 + arg2  # If not, add arg1 to the default value of arg2
+
 
 print(f3(1, 2))  # Should print 3
-print(f3(8))     # Should print 9
+print(f3(8))  # Should print 9
 
 
 # Write a function f4 that accepts an arbitrary number of keyword arguments and
@@ -44,16 +68,20 @@ print(f3(8))     # Should print 9
 # Note: Google "python keyword arguments".
 
 # YOUR CODE HERE
+def f4(**kwargs):                               # Takes in arbitrary amount of keyword arguments (as a dict)
+    for key, value in kwargs.items():           # For each key and value in kwargs.items...
+        print(f'key: {key}, value: {value}')    # F-String for interpolation
+
 
 # Should print
 # key: a, value: 12
-# key: b, value: 30
+# # key: b, value: 30
 f4(a=12, b=30)
 
-# Should print
-# key: city, value: Berkeley
-# key: population, value: 121240
-# key: founded, value: "March 23, 1868"
+# # Should print
+# # key: city, value: Berkeley
+# # key: population, value: 121240
+# # key: founded, value: "March 23, 1868"
 f4(city="Berkeley", population=121240, founded="March 23, 1868")
 
 d = {
@@ -61,5 +89,12 @@ d = {
     "hp": 3
 }
 
-# How do you have to modify the f4 call below to make this work?
-f4(d)
+# # How do you have to modify the f4 call below to make this work?
+# f4(d)
+
+
+fruits = ['lemon', 'pear', 'watermelon', 'tomato']
+print(fruits)                                       # ['lemon', 'pear', 'watermelon', 'tomato']
+print(fruits[0], fruits[1], fruits[2], fruits[3])   # lemon pear watermelon tomato
+print(*fruits)                                      # lemon pear watermelon tomato
+# print(**fruits)                                   # ** is for dictionaries, * is for lists
