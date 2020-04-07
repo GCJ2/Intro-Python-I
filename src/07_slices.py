@@ -15,23 +15,23 @@ a = [2, 4, 1, 7, 9, 6]
 print(a[1])
 
 # Output the second-to-last element: 9
-print(a[-2])
+print(a[-2])        # Negative index
 
 # Output the last three elements in the array: [7, 9, 6]
-print(a[-3:])
+print(a[-3:])       # Start at negative index 3 and move forward
 
 # Output the two middle elements in the array: [1, 7]
-print(a[2:-2])
+print(a[2:-2])      # Start and index 2 and stop and negative index 2
 
 # Output every element except the first one: [4, 1, 7, 9, 6]
-print(a[1:])
+print(a[1:])        # Start at index 1 in list and go until end
 
 # Output every element except the last one: [2, 4, 1, 7, 9]
-print(a[:-1])
+print(a[:-1])       # Return entire list except for last element
 
 # For string s...
 
 s = "Hello, world!"
 
 # Output just the 8th-12th characters: "world"
-print(s[7:12])
+print(s[7:12])      # Starts and index 7 and stops at index 12

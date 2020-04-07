@@ -3,6 +3,6 @@
 
 # YOUR CODE HERE
 
-bignum = 2**65536
+bignum = 2**65536       # ** is used in Python for multiplying to a specific power
 
 print(bignum)

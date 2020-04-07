@@ -15,7 +15,7 @@ y = "7"
 
 # YOUR CODE HERE
 
-z = x + int(y)
+z = x + int(y)      # int() method converts
 
 print(z)
 
